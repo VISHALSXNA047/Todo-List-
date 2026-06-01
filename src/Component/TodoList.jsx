@@ -50,7 +50,6 @@ const handleAddTask = () => {
 
   setTasks((prev) => [...prev, newTask]);
   setInputValue("");
-  // toast.success("Task added successfully");
 };
 
   const handleTaskCheckboxChange = (taskId) => {
@@ -63,7 +62,6 @@ const handleAddTask = () => {
 
   const handleDeleteTask = (taskId) => {
     setTasks((prev) => prev.filter((task) => task.id !== taskId));
-    // toast.success("Task deleted successfully");
   };
 
   const handleEditTask = (taskId) => {
@@ -85,7 +83,6 @@ const handleAddTask = () => {
 
   setInputValue("");
   setEditTaskId(null);
-  // toast.success("Task updated successfully");
 };
 
   const handleCompleteAll = () => {
@@ -107,7 +104,6 @@ const handleAddTask = () => {
 
   return (
     <div className="container">
-      <ToastContainer />
       <div className="todo-app">
         <div className="top-bar">
           <h2>
@@ -199,8 +195,8 @@ const handleAddTask = () => {
             </button>
             {dropdownOpen && (
               <div className="dropdown-content">
-                <a
-                  href="#"
+                <button
+                  type="button"
                   onClick={(e) => {
                     e.preventDefault();
                     handleFilterChange("all");
@@ -208,9 +204,9 @@ const handleAddTask = () => {
                   }}
                 >
                   All
-                </a>
-                <a
-                  href="#"
+                </button>
+                <button
+                  type="button"
                   onClick={(e) => {
                     e.preventDefault();
                     handleFilterChange("uncompleted");
@@ -218,9 +214,9 @@ const handleAddTask = () => {
                   }}
                 >
                   Uncompleted
-                </a>
-                <a
-                  href="#"
+                </button>
+                <button
+                  type="button"
                   onClick={(e) => {
                     e.preventDefault();
                     handleFilterChange("completed");
@@ -228,7 +224,7 @@ const handleAddTask = () => {
                   }}
                 >
                   Completed
-                </a>
+                </button>
               </div>
             )}
           </div>
